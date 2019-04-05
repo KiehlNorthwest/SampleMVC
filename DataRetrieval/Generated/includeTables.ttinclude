@@ -1,0 +1,22 @@
+<#
+// This include file is being consumed by the following:
+//	BCS.Tests.Utility\Generated\UnitTestBcsDbContextLookups.tt
+//  BCS.Tests.Utility\Generated\UtilityLookups.tt
+//  BCS.DataEntities\Generated\Entities.tt
+//  BCS.DataEntities\Generated\EntityEnums.tt
+//  BCS Web\Generated\ApplicationDataEnums.tt
+
+//  NOTE: original from BCS.Data.Entities/Generated/Entities.tt
+//	string[] tablesToInclude = new string[] {"ManagingOrganization", "ManagingOrganizationStatus","ManagingOrganizationType","InquiryType","Entity","ApplicationState","ApplicantContact", "AliasSource","ApplicantAddress","CrimeDegreeType","State","SelfDisclosureQuestion","ContactTypeModifier","ContactType","AddressType","Applicant","Application","ApplicantAlias","Contact","SelfDisclosure","ApplicationSelfDisclosureAnswer","DriversLicense","Address","TemporalBatch"};
+
+	string[] _tablesWithUniquePks = new string[] {
+
+	};
+	string[] includedDynamicTables = new string[] {
+		"Person"
+	};
+
+	string[] includeStaticTables = new string[] {
+		
+	};
+#>
