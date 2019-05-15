@@ -35,7 +35,7 @@
 	//Set up connection *****************************************************************
 	//***********************************************************************************
 	//
-	string connectionString = "Server=.\\sql2017;trusted_connection=true";
+	string connectionString = "Server=.;trusted_connection=true";
 	string sqlDatabase = "SampleMVC";
 	//
 	//***********************************************************************************

@@ -69,4 +69,7 @@
   <ItemGroup>
     <None Include="Database.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\FileInformation.sql" />
+  </ItemGroup>
 </Project>

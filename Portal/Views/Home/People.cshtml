@@ -1,0 +1,44 @@
+﻿@model Portal.Models.PeopleModel
+@{
+    ViewBag.Title = "People";
+}
+
+@using (Html.BeginForm("People", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+
+    <h2>People</h2>
+    <input id="upload" type="file" name="Upload" size="60" />
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" onclick="pollComplete()">Submit</button>
+    </div>
+}
+<div class="border">
+
+    @Html.Partial("_People", Model)
+
+</div>
+
+<script type="text/javascript">
+    function pollComplete() {
+        let uploadName = $("#upload").val();
+        let progress = $('.progress-bar');
+        $.ajax({
+            type: 'POST',
+            url: '/Home/PercentDone',
+            data: { fileName: uploadName },
+            success: function (response) {
+                let value = (response ? response : "0") + "%";
+                progress.text(value);
+                progress.width(value);
+                setTimeout(pollComplete, 1000);
+            }
+        });
+    }
+</script>
+
+

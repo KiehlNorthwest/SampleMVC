@@ -31,14 +31,14 @@ namespace SampleMVC.Data.Tests
         {
             using (MyDbContext context = new MyDbContext())
             {
-                var people = context.Persons;
-                context.Persons.RemoveRange(people);
+                var people = context.People;
+                context.People.RemoveRange(people);
                 context.SaveChanges();
             }
             //totally new connection
             using (MyDbContext context = new MyDbContext())
             {
-                var people = context.Persons.ToList();
+                var people = context.People.ToList();
                 Assert.AreEqual(people.Count, 0, "There shouldn't be any people.");
 
             }
@@ -47,7 +47,7 @@ namespace SampleMVC.Data.Tests
         [TestMethod]
         public void TestGetPeopleWithDefaults()
         {
-            using (SampleMVCRepository repository = new SampleMVCRepository())
+            using (MyRepository repository = new MyRepository())
             {
                 PagedSearchDto dto = new PagedSearchDto();
                 dto.PageSize = 25;
@@ -65,7 +65,7 @@ namespace SampleMVC.Data.Tests
         {
             using (MyDbContext context = new MyDbContext())
             {
-                var people = context.Persons.Take(25);
+                var people = context.People.Take(25);
                 Assert.IsTrue(people.Count() == 25);
             }
         }

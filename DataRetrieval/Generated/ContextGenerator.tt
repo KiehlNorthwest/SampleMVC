@@ -48,7 +48,7 @@
 
 	//*************** Set up connection and File Info ***********************************
 	//
-	string connectionString = "Server=.\\sql2017;trusted_connection=true";
+	string connectionString = "Server=.;trusted_connection=true";
 	string sqlDatabase = "SampleMVC";
 
 	// The namespace to apply to the generated classes
@@ -463,7 +463,7 @@ public static class Utility
 		string[] isPlural = {"fish", "data"};
 		if(isPlural.Contains(value.ToLower()))
 			return value;
-		if (value.EndsWith("ess"))
+		if (value.EndsWith("ess") || value.EndsWith("Information"))
 			return value +"Records";
         if (value.EndsWith("ies"))
             return value;
@@ -475,6 +475,8 @@ public static class Utility
 			return value +"s";
         if (value.EndsWith("y"))
             return value.Remove(value.Length - 1, 1) + "ies";
+		if (value.ToLower() == "person")
+			return "People";
         else
             return value + "s";
     }

@@ -13,7 +13,8 @@
 
 	};
 	string[] includedDynamicTables = new string[] {
-		"Person"
+		"Person",
+		"FileInformation"
 	};
 
 	string[] includeStaticTables = new string[] {

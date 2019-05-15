@@ -11,6 +11,8 @@ Post-Deployment Script Template
 */
 USE SampleMVC
 
+TRUNCATE TABLE Person;
+
 INSERT INTO Person (FirstName,LastName,MiddleName)
 SELECT 'F'+SUBSTRING(CONVERT(varchar(36),NEWID()),0,5), 'L' + SUBSTRING(CONVERT(varchar(36),NEWID()),0,5), SUBSTRING(CONVERT(varchar(36),NEWID()),3,1)
-GO 10000
+GO 100000

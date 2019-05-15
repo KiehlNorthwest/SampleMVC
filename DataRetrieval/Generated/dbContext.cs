@@ -25,12 +25,22 @@ namespace SampleMVC.Data
 		{ 
 		     Configuration.LazyLoadingEnabled = false;
 		}
-		public virtual DbSet<Person> Persons { get; set; }
+		public virtual DbSet<FileInformation> FileInformationRecords { get; set; }
+		public virtual DbSet<Person> People { get; set; }
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 			CustomOnModelCreating(modelBuilder);
 			
 			#region Base Tables
+			modelBuilder
+                .Entity<FileInformation>()
+                .ToTable("FileInformation", "dbo")
+                .HasKey(fileinformation => fileinformation.Id)
+
+                .Property(fileinformation => fileinformation.Id)
+                .HasColumnName("FileInformationId")
+                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
 			modelBuilder
                 .Entity<Person>()
                 .ToTable("Person", "dbo")
